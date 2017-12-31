@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Post } from './model/post.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title: string;
+  posts: Observable<Post[]>;
+
+  onAddPostClick() {
+
+  }
+
+  onReloadClick() {
+
+  }
 }
