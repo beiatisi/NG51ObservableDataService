@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Post } from '../../model/post.model';
-import { IPostService } from '../../interface/ipost-service.interface';
-import { Observable } from 'rxjs/Observable';
+import { IAddPost } from '../../interface/iadd-post.interface';
 
 @Component({
   selector: 'app-add-post',
@@ -10,9 +9,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AddPostComponent {
   title: string;
-  posts: Observable<Post[]> = this.postService.getPosts();
 
-  constructor(private postService: IPostService) { }
+  constructor(private postService: IAddPost) { }
 
   onAddPostClick() {
     const post: Post = {
@@ -21,7 +19,6 @@ export class AddPostComponent {
     };
 
     this.postService.addPost(post);
-    this.posts = this.postService.getPosts();
 
     this.title = '';
   }

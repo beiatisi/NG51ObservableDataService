@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Post } from '../../model/post.model';
-import { IPostService } from '../../interface/ipost-service.interface';
+import { IReloadPosts } from '../../interface/ireload-posts.interface';
 
 @Component({
   selector: 'app-reload-posts',
@@ -9,11 +7,9 @@ import { IPostService } from '../../interface/ipost-service.interface';
   styleUrls: ['./reload-posts.component.css']
 })
 export class ReloadPostsComponent {
-  posts: Observable<Post[]> = this.postService.getPosts();
-
-  constructor(private postService: IPostService) { }
+  constructor(private postService: IReloadPosts) { }
 
   onReloadClick() {
-    this.posts = this.postService.getPosts();
+    this.postService.reloadPosts();
   }
 }
